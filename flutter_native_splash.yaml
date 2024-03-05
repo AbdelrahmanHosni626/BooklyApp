@@ -1,0 +1,11 @@
+flutter_native_splash:
+
+  color: "#100B20"
+  image: assets/images/android11_splash.png
+
+
+  # Following are specific parameters for Android 12+.
+  android_12:
+
+   image: assets/images/android12_splash.png
+   color: "#100B20"
