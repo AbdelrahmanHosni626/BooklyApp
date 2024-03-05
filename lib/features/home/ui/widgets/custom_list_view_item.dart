@@ -9,8 +9,7 @@ class CustomListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160.w,
-      height: 160.h,
+      width: 100.w,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
