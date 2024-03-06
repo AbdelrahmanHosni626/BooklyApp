@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String fontsGtSectraRegular = 'assets/fonts/gt_sectra_regular.ttf';
   static const String imagesAndroid11Splash = 'assets/images/android11_splash.png';
   static const String imagesAndroid12Splash = 'assets/images/android12_splash.png';
   static const String imagesAppBarLogo = 'assets/images/appBar_logo.png';
