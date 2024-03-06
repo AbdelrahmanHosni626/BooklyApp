@@ -12,23 +12,25 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.w),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Expanded(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const CustomAppBar(),
-                const FeaturedBooksListView(),
-                verticalSpace(50),
-                Text('Best Seller', style: TextStyles.font20WhiteSemiBold),
-                verticalSpace(20),
-                const BestSellerListView(),
-              ],
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CustomAppBar(),
+                  const FeaturedBooksListView(),
+                  verticalSpace(50),
+                  Text('Best Seller', style: TextStyles.font20WhiteSemiBold),
+                  verticalSpace(20),
+                  const BestSellerListView(),
+                ],
+              ),
             ),
           ),
         ),
