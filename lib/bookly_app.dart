@@ -3,9 +3,11 @@ import 'package:bookly_app/core/routing/routes.dart';
 import 'package:bookly_app/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BooklyApp extends StatelessWidget {
   final AppRouter appRouter;
+
   const BooklyApp({super.key, required this.appRouter});
 
   @override
@@ -18,9 +20,12 @@ class BooklyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generateRoute,
         initialRoute: Routes.homeScreen,
+        theme: ThemeData(
+          scaffoldBackgroundColor: ColorsManager.mainBlue,
+          primaryColor: ColorsManager.mainBlue,
 
-        theme: ThemeData(scaffoldBackgroundColor: ColorsManager.mainBlue),
-
+          textTheme: GoogleFonts.montserratTextTheme()
+        ),
       ),
     );
   }
