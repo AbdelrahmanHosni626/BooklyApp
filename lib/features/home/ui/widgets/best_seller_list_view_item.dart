@@ -3,13 +3,18 @@ import 'package:bookly_app/core/helpers/spacing.dart';
 import 'package:bookly_app/core/routing/routes.dart';
 import 'package:bookly_app/core/theming/colors.dart';
 import 'package:bookly_app/core/theming/styles.dart';
-import 'package:bookly_app/generated/assets.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../generated/assets.dart';
+
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+  final BookModel bookModel;
+
+  const BestSellerListViewItem({super.key, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
@@ -19,42 +24,46 @@ class BestSellerListViewItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 120.h,
-            child: Image.asset(
-              Assets.imagesTestImage,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: customImageListView(
+              bookModel.volumeInfo?.imageLinks?.thumbnail ?? Assets.imagesWrongImage,
             ),
           ),
           horizontalSpace(20),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children:
-            [
+            children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.57,
+                width: MediaQuery.of(context).size.width * 0.50,
                 child: Text(
-                  'Harry Potter and the Goblet of Fire',
+                  bookModel.volumeInfo!.title!,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyles.font20WhiteRegular.copyWith(fontFamily: 'sectra'),
+                  style: TextStyles.font20WhiteRegular
+                      .copyWith(fontFamily: 'sectra'),
                 ),
               ),
               verticalSpace(3),
-              Text('J.K. Rowling', style: TextStyles.font14GreyMedium,),
+              Text(
+                bookModel.volumeInfo!.authors![0],
+                style: TextStyles.font14GreyMedium,
+              ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text('19.99 €     ', style: TextStyles.font20WhiteBold,),
-                  Row(
-                    children: [
-                      const Icon(FontAwesomeIcons.solidStar, size: 15, color: ColorsManager.lightYellow,),
-                      Text('4.8', style: TextStyles.font16WhiteMedium,),
-                      Text('(2390)', style: TextStyles.font14WhiteRegular,),
-                    ],
+                  const Icon(
+                    FontAwesomeIcons.solidStar,
+                    size: 15,
+                    color: ColorsManager.lightYellow,
+                  ),
+                  horizontalSpace(5),
+                  Text(
+                    'free',
+                    style: TextStyles.font20WhiteBold,
                   ),
                 ],
               ),
-
             ],
           ),
         ],
@@ -62,3 +71,11 @@ class BestSellerListViewItem extends StatelessWidget {
     );
   }
 }
+
+Widget customImageListView(final String imgUrl) => SizedBox(
+      height: 120.h,
+      child: CachedNetworkImage(
+        fit: BoxFit.cover,
+        imageUrl: imgUrl,
+      ),
+    );

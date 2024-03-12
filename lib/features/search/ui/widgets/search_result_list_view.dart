@@ -1,5 +1,4 @@
 import 'package:bookly_app/core/helpers/spacing.dart';
-import 'package:bookly_app/features/home/ui/widgets/best_seller_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultListView extends StatelessWidget {
@@ -10,7 +9,7 @@ class SearchResultListView extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       physics: const RangeMaintainingScrollPhysics(),
-      itemBuilder: (context, index) => const BestSellerListViewItem(),
+      itemBuilder: (context, index) => Container(),
       separatorBuilder: (context, index) => verticalSpace(20),
       itemCount: 10,
     );
