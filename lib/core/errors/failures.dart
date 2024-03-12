@@ -9,8 +9,8 @@ abstract class Failure {
 class ServerFailure extends Failure {
   ServerFailure(super.errMessage);
 
-  factory ServerFailure.fromDioException(DioException dioError) {
-    switch (dioError.type) {
+  factory ServerFailure.fromDioException(DioException dioException) {
+    switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure('Connection timeout with ApiServer');
 
@@ -22,12 +22,12 @@ class ServerFailure extends Failure {
 
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioError.response!.statusCode, dioError.response!.data);
+            dioException.response!.statusCode, dioException.response!.data);
       case DioExceptionType.cancel:
         return ServerFailure('Request to ApiServer was canceled');
 
       case DioExceptionType.unknown:
-        if (dioError.message!.contains('SocketException')) {
+        if (dioException.message!.contains('SocketException')) {
           return ServerFailure('No Internet Connection');
         }
         return ServerFailure('Unexpected Error, Please try again!');

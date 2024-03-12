@@ -1,9 +1,6 @@
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 
-abstract class FeaturedBooksStates {
-
-  const FeaturedBooksStates();
-}
+abstract class FeaturedBooksStates {}
 
 class FeaturedBooksInitialState extends FeaturedBooksStates {}
 
@@ -12,7 +9,7 @@ class FeaturedBooksLoadingState extends FeaturedBooksStates {}
 class FeaturedBooksSuccessState extends FeaturedBooksStates {
   final List<BookModel> books;
 
-  const FeaturedBooksSuccessState(this.books);
+  FeaturedBooksSuccessState(this.books);
 }
 
 class FeaturedBooksErrorState extends FeaturedBooksStates {

@@ -16,8 +16,8 @@ class BestSellerCubit extends Cubit<BestSellerBooksStates> {
           BestSellerBooksErrorState(error.errMessage),
         );
       },
-      (r) {
-        emit(BestSellerBooksSuccessState());
+      (books) {
+        emit(BestSellerBooksSuccessState(books));
       },
     );
   }
