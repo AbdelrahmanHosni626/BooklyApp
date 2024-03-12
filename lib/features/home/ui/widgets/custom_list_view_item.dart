@@ -1,25 +1,25 @@
 import 'package:bookly_app/core/helpers/extensions.dart';
 import 'package:bookly_app/core/routing/routes.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../generated/assets.dart';
 
 class CustomListViewItem extends StatelessWidget {
-  const CustomListViewItem({super.key});
+  final String imgUrl;
+
+  const CustomListViewItem({super.key, required this.imgUrl});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.pushNamed(Routes.bookDetailsScreen),
-      child: Container(
-        width: 100.w,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              Assets.imagesTestImage,
-            ),
-          ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: CachedNetworkImage(
+          fit: BoxFit.fill,
+          errorWidget: (context, url, error) => const Image(image: AssetImage(Assets.imagesWrongImage),),
+          imageUrl: imgUrl,
         ),
       ),
     );

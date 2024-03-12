@@ -6,20 +6,29 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../../core/networking/end_points.dart';
+import '../models/book_model/book_model.dart';
 
 class HomeRepoImpl implements HomeRepo {
-
   final ApiService apiService;
 
   HomeRepoImpl(this.apiService);
+
+
+
   @override
-  Future<Either<Failure, Map<String,dynamic>>> fetchBestSellerBooks() async{
+  Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
     try {
-      var data = await apiService.get(endPoint: bestSellerBooks);
-      if (kDebugMode) {
-        print(data);
+      var data = await apiService.get(endPoint: bestSellerBooksEndPoint);
+      List<BookModel> bestSellerBookModel = [];
+      for (var item in data['items']) {
+        bestSellerBookModel.add(BookModel.fromJson(item));
       }
-      return right(data);
+
+      if (kDebugMode) {
+        print(
+            '#####################################################################################$bestSellerBookModel');
+      }
+      return right(bestSellerBookModel);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
@@ -28,14 +37,22 @@ class HomeRepoImpl implements HomeRepo {
     }
   }
 
+
+
   @override
-  Future<Either<Failure, Map<String,dynamic>>> fetchFeaturedBooks() async{
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      var data = await apiService.get(endPoint: featuredBooks);
-      if (kDebugMode) {
-        print(data);
+      var data = await apiService.get(endPoint: featuredBooksEndPoint);
+      List<BookModel> featuredBookModel = [];
+      for (var item in data['items']) {
+        featuredBookModel.add(BookModel.fromJson(item));
       }
-      return right(data);
+
+      if (kDebugMode) {
+        print(
+            '**************************************************************************$featuredBookModel');
+      }
+      return right(featuredBookModel);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

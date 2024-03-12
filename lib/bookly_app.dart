@@ -3,6 +3,7 @@ import 'package:bookly_app/core/routing/app_router.dart';
 import 'package:bookly_app/core/routing/routes.dart';
 import 'package:bookly_app/core/theming/colors.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:bookly_app/features/home/logic/best_seller_cubit/best_seller_books_cubit.dart';
 import 'package:bookly_app/features/home/logic/featured_books_cubit/featured_books_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -21,14 +22,29 @@ class BooklyApp extends StatelessWidget {
       splitScreenMode: true,
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      child: BlocProvider(
-        create: (BuildContext context) => FeaturedBooksCubit(
-          HomeRepoImpl(
-            ApiService(
-              Dio(),
-            ),
+      child: MultiBlocProvider(
+        providers:
+        [
+          BlocProvider(
+            create: (BuildContext context) => FeaturedBooksCubit(
+              HomeRepoImpl(
+                ApiService(
+                  Dio(),
+                ),
+              ),
+            )..fetchFeaturedBooks(),
           ),
-        )..fetchFeaturedBooks(),
+          BlocProvider(
+            create: (BuildContext context) => BestSellerCubit(
+              HomeRepoImpl(
+                ApiService(
+                  Dio(),
+                ),
+              ),
+            )..fetchBestSellerBooks(),
+          ),
+        ],
+
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.generateRoute,

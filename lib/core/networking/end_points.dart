@@ -1,2 +1,2 @@
-const bestSellerBooks = 'volumes?q=subject:programming&Filtering=free-ebooks&sorting=newest';
-const featuredBooks = 'volumes?q=subject:programming&Filtering=free-ebooks';
+const bestSellerBooksEndPoint = 'volumes?q=subject:programming&Filtering=free-ebooks&sorting=newest';
+const featuredBooksEndPoint = 'volumes?q=subject:programming&Filtering=free-ebooks';

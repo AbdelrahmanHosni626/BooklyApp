@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CustomAppBar(),
-                const FeaturedBooksListView(),
+                FeaturedBooksListView(),
                 verticalSpace(50),
                 Text('Best Seller', style: TextStyles.font20WhiteSemiBold),
                 verticalSpace(20),
