@@ -22,6 +22,7 @@ class BookDetailsScreen extends StatefulWidget {
 class _BookDetailsScreenState extends State<BookDetailsScreen> {
   @override
   void initState() {
+    super.initState();
     BlocProvider.of<SimilarBooksCubit>(context).fetchSimilarBooks(
         category: widget.bookModel.volumeInfo!.categories![0]);
   }

@@ -118,7 +118,7 @@ class VolumeInfo {
         : null;
     pageCount = json['pageCount'];
     printType = json['printType'];
-    categories = json['categories'].cast<String>();
+    categories = json['categories']== null ? [] : json['categories'].cast<String>();
     maturityRating = json['maturityRating'];
     allowAnonLogging = json['allowAnonLogging'];
     contentVersion = json['contentVersion'];

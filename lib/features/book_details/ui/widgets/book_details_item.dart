@@ -1,10 +1,8 @@
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
 class BookDetailsItem extends StatelessWidget {
@@ -17,31 +15,31 @@ class BookDetailsItem extends StatelessWidget {
     return Column(
       children:
       [
-        Image.asset(
-          'assets/images/test_image.png',
-          height: 243,
+        Container(
+          width: 120.w,
+          height: 180.h,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: NetworkImage(
+                bookModel.volumeInfo!.imageLinks!.thumbnail!,
+              )
+            )
+          ),
         ),
         verticalSpace(40.h),
         Text(
-          'The Jungle Book',
+          bookModel.volumeInfo!.title!,
+          textAlign: TextAlign.center,
           style: TextStyles.font30WhiteRegular.copyWith(fontFamily: 'sectra'),
         ),
         verticalSpace(4.h),
         Text(
-          'Rudyard Kipling',
+          bookModel.volumeInfo!.authors![0],
           style: TextStyles.font18DarGreyMedium,
         ),
         verticalSpace(15.h),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(FontAwesomeIcons.solidStar, size: 15, color: ColorsManager.lightYellow,),
-            horizontalSpace(6.w),
-            Text('4.8', style: TextStyles.font16WhiteMedium,),
-            horizontalSpace(9.w),
-            Text('(2390)', style: TextStyles.font14WhiteRegular.copyWith(color: ColorsManager.darkGrey),),
-          ],
-        ),
       ],
     );
   }
