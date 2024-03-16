@@ -24,9 +24,10 @@ class YouCanAlsoLikeListView extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               separatorBuilder: (context, index) => horizontalSpace(10),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: state.books.length,
               itemBuilder: (context, index) =>
                   YouCanAlsoLikeListViewItem(
+                    bookModel: state.books[index],
                     imageUrl: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
                   ),
             ),
