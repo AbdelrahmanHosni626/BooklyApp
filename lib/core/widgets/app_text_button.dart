@@ -7,6 +7,7 @@ class AppTextButton extends StatelessWidget {
   final Color bgColor;
   final BorderRadius? borderRadius;
   final String text;
+  final VoidCallback? onPressed;
 
   const AppTextButton({
     super.key,
@@ -14,6 +15,7 @@ class AppTextButton extends StatelessWidget {
     required this.bgColor,
     this.borderRadius,
     required this.text,
+    this.onPressed,
   });
 
   @override
@@ -21,7 +23,7 @@ class AppTextButton extends StatelessWidget {
     return SizedBox(
       height: 50,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: TextButton.styleFrom(
             backgroundColor: bgColor,
             shape: RoundedRectangleBorder(

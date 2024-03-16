@@ -42,7 +42,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                 verticalSpace(35.h),
                 BookDetailsItem(bookModel: widget.bookModel,),
                 verticalSpace(35.h),
-                const BookAction(),
+                BookAction(bookModel: widget.bookModel,),
                 verticalSpace(50.h),
                 Text(
                   'You can also like',
