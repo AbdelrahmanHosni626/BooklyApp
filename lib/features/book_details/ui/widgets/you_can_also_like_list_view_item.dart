@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/routing/routes.dart';
-import '../../../../generated/assets.dart';
 
 class YouCanAlsoLikeListViewItem extends StatelessWidget {
-  const YouCanAlsoLikeListViewItem({super.key});
+
+  final String imageUrl;
+  const YouCanAlsoLikeListViewItem({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +16,12 @@ class YouCanAlsoLikeListViewItem extends StatelessWidget {
       child: Container(
         width: 100.w,
         height: 150.h,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
           image: DecorationImage(
-            image: AssetImage(
-              Assets.imagesTestImage,
+            fit: BoxFit.fill,
+            image: NetworkImage(
+              imageUrl,
             ),
           ),
         ),

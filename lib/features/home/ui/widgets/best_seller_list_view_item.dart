@@ -73,7 +73,7 @@ class BestSellerListViewItem extends StatelessWidget {
 Widget customImageListView(final String imgUrl) => SizedBox(
       height: 120.h,
       child: CachedNetworkImage(
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
         imageUrl: imgUrl,
       ),
     );

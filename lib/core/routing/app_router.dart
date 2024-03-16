@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/book_details/ui/book_details_screen.dart';
+import '../../features/home/data/models/book_model/book_model.dart';
 import '../../features/home/ui/home_screen.dart';
 
 class AppRouter {
@@ -17,6 +18,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       case Routes.bookDetailsScreen:
+        late final bookModel = settings.arguments;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => SimilarBooksCubit(
@@ -26,7 +28,7 @@ class AppRouter {
                 ),
               ),
             ),
-            child: const BookDetailsScreen(),
+            child: BookDetailsScreen(bookModel: bookModel as BookModel),
           ),
         );
 

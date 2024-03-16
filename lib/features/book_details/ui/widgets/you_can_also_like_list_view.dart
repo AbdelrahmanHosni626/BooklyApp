@@ -26,7 +26,9 @@ class YouCanAlsoLikeListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (context, index) =>
-                  const YouCanAlsoLikeListViewItem(),
+                  YouCanAlsoLikeListViewItem(
+                    imageUrl: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+                  ),
             ),
           );
         } else if (state is SimilarBooksErrorState) {

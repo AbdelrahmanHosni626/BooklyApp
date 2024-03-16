@@ -72,7 +72,7 @@ class HomeRepoImpl implements HomeRepo {
 
       if (kDebugMode) {
         print(
-            '**************************************************************************$similarBooksModel');
+            '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@$similarBooksModel');
       }
       return right(similarBooksModel);
     } catch (e) {

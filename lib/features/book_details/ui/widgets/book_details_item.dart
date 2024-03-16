@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,7 +8,9 @@ import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
 class BookDetailsItem extends StatelessWidget {
-  const BookDetailsItem({super.key});
+
+  final BookModel bookModel;
+  const BookDetailsItem({super.key, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
