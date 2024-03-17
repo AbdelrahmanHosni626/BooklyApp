@@ -6,6 +6,7 @@ class Assets {
   static const String imagesAndroid11Splash = 'assets/images/android11_splash.png';
   static const String imagesAndroid12Splash = 'assets/images/android12_splash.png';
   static const String imagesAppBarLogo = 'assets/images/appBar_logo.png';
+  static const String imagesAppIconImage2 = 'assets/images/appIconImage.png';
   static const String imagesTestImage = 'assets/images/test_image.png';
   static const String imagesWrongImage = 'assets/images/wrong_image.gif';
 
