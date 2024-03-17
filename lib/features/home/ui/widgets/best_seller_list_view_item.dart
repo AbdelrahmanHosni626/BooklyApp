@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../generated/assets.dart';
-
 class BestSellerListViewItem extends StatelessWidget {
   final BookModel bookModel;
 
@@ -19,7 +17,7 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.pushNamed(Routes.bookDetailsScreen),
+      onTap: () => context.pushNamed(Routes.bookDetailsScreen, arguments: bookModel),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +25,7 @@ class BestSellerListViewItem extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: customImageListView(
-              bookModel.volumeInfo?.imageLinks?.thumbnail ?? Assets.imagesWrongImage,
+              bookModel.volumeInfo!.imageLinks!.thumbnail!,
             ),
           ),
           horizontalSpace(20),
@@ -75,7 +73,7 @@ class BestSellerListViewItem extends StatelessWidget {
 Widget customImageListView(final String imgUrl) => SizedBox(
       height: 120.h,
       child: CachedNetworkImage(
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
         imageUrl: imgUrl,
       ),
     );

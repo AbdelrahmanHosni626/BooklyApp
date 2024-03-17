@@ -1,24 +1,30 @@
 import 'package:bookly_app/core/helpers/extensions.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/routing/routes.dart';
-import '../../../../generated/assets.dart';
 
 class YouCanAlsoLikeListViewItem extends StatelessWidget {
-  const YouCanAlsoLikeListViewItem({super.key});
+
+  final BookModel bookModel;
+
+  final String imageUrl;
+  const YouCanAlsoLikeListViewItem({super.key, required this.imageUrl, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.pushNamed(Routes.bookDetailsScreen),
+      onTap: () => context.pushNamed(Routes.bookDetailsScreen, arguments: bookModel),
       child: Container(
         width: 100.w,
         height: 150.h,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
           image: DecorationImage(
-            image: AssetImage(
-              Assets.imagesTestImage,
+            fit: BoxFit.fill,
+            image: NetworkImage(
+              imageUrl,
             ),
           ),
         ),
