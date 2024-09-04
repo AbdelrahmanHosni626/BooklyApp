@@ -11,8 +11,11 @@
 
 ## Screenshots
 
-![RMX1821 9_4_2024 5_05_57 PM](https://github.com/user-attachments/assets/fe0d5917-9d45-418b-9f17-1cd1f5c3f697)         
-![RMX1821 9_4_2024 5_05_29 PM](https://github.com/user-attachments/assets/aa5bc773-ef3b-48ad-af57-4cabf43f1888)
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/user-attachments/assets/fe0d5917-9d45-418b-9f17-1cd1f5c3f697" alt="Screenshot 1" style="width: 24%;"/>
+  
+   
+</div>
 
 
 ## Getting Started
