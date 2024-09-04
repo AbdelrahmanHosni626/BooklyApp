@@ -13,8 +13,7 @@
 
 <div style="display: flex; justify-content: space-between;">
   <img src="https://github.com/user-attachments/assets/fe0d5917-9d45-418b-9f17-1cd1f5c3f697" alt="Screenshot 1" style="width: 24%;"/>
-  
-   
+  <img src="https://github.com/user-attachments/assets/bcaf542c-436a-49b2-a50c-83159bbb299b" alt="Screenshot 1" style="width: 24%;"/>
 </div>
 
 
