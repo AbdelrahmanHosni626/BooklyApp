@@ -11,9 +11,9 @@
 
 ## Screenshots
 
-| Home Screen | Book Details |
-|-------------|--------------|
-| ![Home Screen](assets/screenshots/home_screen.png) | ![Book Details](assets/screenshots/book_details.png) |
+![RMX1821 9_4_2024 5_05_57 PM](https://github.com/user-attachments/assets/fe0d5917-9d45-418b-9f17-1cd1f5c3f697)
+![RMX1821 9_4_2024 5_05_29 PM](https://github.com/user-attachments/assets/aa5bc773-ef3b-48ad-af57-4cabf43f1888)
+
 
 ## Getting Started
 
