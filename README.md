@@ -23,3 +23,7 @@
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/AbdelrahmanHosni626/BooklyApp.git
+
+2. **Run Flutter Pub Get:**
+   ```bash
+   flutter pub get
